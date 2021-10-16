@@ -9,7 +9,7 @@
         'sale',
     ],
     'data': [
-        'views/aefood_views.xml',
+     
     ],
     # 'qweb': ['static/src/xml/*.xml'],
     'installable': True,
