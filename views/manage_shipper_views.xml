@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="sale_order_inherit" model="ir.ui.view">
+        <field name="name">sale.order.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="shippername"/>
+                <field name="deliverydate"/>
+                <field name="delivery"/>
+                <field name="status"/>
+            </field>
+        </field>
+    </record>
+
+    #tree view
+    <record id="manageshipper_tree" model="ir.ui.view">
+            <field name="name">aefood.sale.tree</field>
+            <field name="model">aefood.sale</field>
+            <field name="arch" type="xml">
+                <tree string="ManageShipper">
+                    <field name="name"/>
+                    <field name="shippername"/>
+                    <field name="deliverydate"/>
+                    <field name="delivery"/>
+                    <field name="status"/>
+                </tree>
+            </field>
+        </record>
+
+    #form view
+    <record id="manageshipper_form" model="ir.ui.view">
+            <field name="name">aefood.sale.form</field>
+            <field name="model">aefood.sale</field>
+            <field name="arch" type="xml">
+                <form string="ManageShipper">
+                    <sheet>
+                        <div class="oe_title">
+                        <h1>
+                            <field name="name" readonly="1"/>
+                        </h1>
+                        </div>
+                        <group>
+                            <field name="shippername"/>
+                        </group>
+                        <group>
+                            <group>
+                                <field name="deliverydate"/>
+                            </group>
+                            <group>
+                                <field name="delivery"/>
+                            </group>
+                            <group>
+                                <field name="status"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+    <!-- action of the manageshipper-->
+    <record id="action_manageshipper" model="ir.actions.act_window">
+            <field name="name">Manage Shipper</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">aefood.sale</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+              <p class="o_view_nocontent_smiling_face">
+                Tạo đơn giao hàng!
+              </p>
+            </field>
+    </record>
+
+
+    <menuitem id="aefoodsale_root" name="Aefoodsale" sequence="10"/>
+    <menuitem id="aefoodsale_manageshipper" name="Manageshipper" parent="aefoodsale_root" action="action_manageshipper"/>
+
+</odoo>
