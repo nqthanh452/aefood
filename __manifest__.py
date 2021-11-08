@@ -8,10 +8,12 @@
     'depends': [
         'mail',
         'sale',
+        'hr',
     ],
     'data': [
         'views/manage_shipper_views.xml',
         'data/sequense.xml',
+        'views/quanly_shipper.xml',
     ],
     # 'qweb': ['static/src/xml/*.xml'],
     'installable': True,
