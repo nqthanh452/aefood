@@ -6,8 +6,7 @@
         <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
             <field name="work_email" position="after">
-                <field name="shippername"/>
-                <field name="CCCD"/>
+
                 <field name="tiemchung"/>
             </field>
         </field>

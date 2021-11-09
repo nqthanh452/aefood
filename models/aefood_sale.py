@@ -5,13 +5,9 @@ from odoo.exceptions import UserError, ValidationError
 class SaleOrderInherit(models.Model):
     _inherit = "sale.order"
 
-    shippername = fields.Char("Tên người giao hàng")
-    deliverydate = fields.Date(string="Thời gian giao hàng dự kiến")
-    delivery = fields.Selection([
-        ('giao hàng tiết kiệm', 'Giao hàng tiết kiệm'),
-        ('giao hàng nhanh', 'Giao hàng nhanh')
-    ], string='Chọn hình thức giao hàng', default='giao hàng tiết kiệm')
-    status = fields.Char("tình trạng đơn hàng")
+    address = fields.Char("Địa chỉ giao hàng")
+
+    phone = fields.Char("Số điện thoai")
 
 class aefoodSale(models.Model):
     _name = "aefood.sale"
